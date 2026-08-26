@@ -88,7 +88,7 @@ def run_query(q: str, search, reranker, top_k: int) -> tuple[str, list[str]]:
             client = OpenAI()
             ctx = "\n\n".join(contexts)
             resp = client.chat.completions.create(
-                model="gpt-4o-mini",
+                model="openai/gpt-4o-mini",
                 messages=[
                     {"role": "system", "content": "Trả lời CHỈ dựa trên context. Nếu không có → nói 'Không tìm thấy.'"},
                     {"role": "user",   "content": f"Context:\n{ctx}\n\nCâu hỏi: {q}"},

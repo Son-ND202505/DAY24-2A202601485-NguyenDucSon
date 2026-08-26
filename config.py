@@ -7,12 +7,15 @@ load_dotenv()
 
 # --- API Keys ---
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
+OPENAI_BASE_URL = os.getenv("OPENAI_BASE_URL", "")
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "openai/gpt-4o-mini")
 HF_TOKEN = os.getenv("HF_TOKEN", "")  # Optional: for HuggingFace models
 
 # --- Qdrant (same as Day 18) ---
 QDRANT_HOST = "localhost"
 QDRANT_PORT = 6333
 COLLECTION_NAME = "lab24_production"
+NAIVE_COLLECTION = "lab24_naive"
 
 # --- Embedding (same as Day 18) ---
 EMBEDDING_MODEL = "BAAI/bge-m3"
@@ -38,7 +41,7 @@ ADVERSARIAL_SET_PATH = os.path.join(os.path.dirname(__file__), "adversarial_set_
 GUARDRAILS_CONFIG_DIR = os.path.join(os.path.dirname(__file__), "guardrails")
 
 # --- LLM Judge ---
-JUDGE_MODEL = "gpt-4o-mini"
+JUDGE_MODEL = "openai/gpt-4o-mini"  # OpenRouter-prefixed; via OPENAI_BASE_URL in .env
 
 # --- Guardrail latency budget ---
 LATENCY_BUDGET_P95_MS = 500  # target: full guard stack P95 < 500ms
